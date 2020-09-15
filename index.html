@@ -21,16 +21,241 @@
   
   
 <style>
-body{
-  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARwAAACxCAMAAAAh3/JWAAABLFBMVEX////LRUovdMDLQkjQZ2srcsDKQEXQaGzOQUPMQkZZisbKPkPPZGjPYGTPQEEib77MTlPJNz3QbHDNVVrLSE3OWl4AZrvIMznRPz4mcL/irK7W1tbr6+vMUVbtzc5JgcS4yePIyMi+vr6ZmZnz8/M4eMHq7/Xz4eLSdXllkcpVkc/UUlCtra3MzMyfn5+EpdLZ4e53hLemvd2kd5bcl5nHKjGtc47H1Ohtlsrx3N3TgYTt7e3f399vb2+Li4upqakAYrqYsti/eYinvNngpKbkuLrXio3FbHebeZ2zcol9grOKfqrowsNra2t9fX2IqNOMj7mVe6KnpsT/8OzFGiNjhL6taoSacJXPytnCZ3XAg5Jsn9OodZOkjKrDd4TbSD1/jbyck7W8oLJNebuCvX+BAAAVgklEQVR4nO1dC0PiyJYOFAmYBwl5EFAxigmEwVcrtErbbftCW91xenu8u7e3x5nZ/f//YavyrqQC3YqBvjff7fEiQqj6PO9zKlJUjhw5cuTIkSNHjhw5cuTI8cow2xvb/uPgwcYGFXvu3RZFwX8r8Ou7DFc3Z5xsUafU9jbVXnl/skKdmiftE4r6sNJebcOnTqiT09X377ZWqRNqc5PaXPmV2pz3grPE6vuNrdUP76H4bFI7cP875geK+o8P5vud9gfqA7W5Re202/B1Gyub6BXU+62Nqdf8l8FJmzo92TE3ViATDjnw/yEl5q8mZX7YpD6cQkpWttC/TcSV879/G5g7UI/ap9TW9srKirnzbgXZlRVq+2Rn9fRk9RRq1tb2qUltnLbNHRP+YBV+zZEjR44cOXLkyJEjR44cOXLkWFCYD3vzXsIi4ggVdDrmUV08OsxrOzg6H42OQw5NN8U6u9+Z94IWChZdP9qjDq0iAi3Wrd1cgAKwdLFZv+i45CCIUIDODue9rMUADenorR+G5HgCZC8fz3tp84dVpHu7e0fNIgb6TaOmcOXLtYVTsUyNIrTEuxd7NB0j56YCyoDharoyulocEdo3D8VidkFHp0eLZ4dsjJsifb0EySlAAEiQroyvjhdBhgxLLDaNzD7ONGhoguPcFI1+ocA75BQChiT78r47V4o6dbS2emaadVGP8+KZnEJLC8lxGUJapqvyYHmtm9XycKyLjjvdz+rzDi/i5sYh56BSAHKMnJAiyBEQ7MHy/fFEljrrM16s6zborPTKrBs9kuRcL6WRE2oaImmoFFole3y5fL923P0S07k9ccarPXMkJzO9goJKs0lykMlhbGYSOR5FPICihHiC0qTrQ73GqJLS+o1FMOoztlCWK+TifjaWb7dZtIyEXiGTAyFPZweUEuIFAKgeNGkE6Ac7VGd2v2c/GhNnLZJEOOa/ZxmGa3h8lmCUg3YpSM8hB6L6mfZ3Ud8V60ezWq6nVvC6WeQ3D6Jj4Cyrx7KWZRnwG9ozORCMzL2QHAj4yxaPjD1qb73z4ugtlHHReHXN6nh+nEYyA22E4ZgK+I27ZcDbE21yKjmVt7imQgXrQSH62HuZhu2JwRVF9tXJ2ReLcdC0xbK/SO6WuckOK5UcIFiJ6xbrvRdKjvkg+mus786GgElIbMH/8POKs8lW+XnkFBpvEka+7oduXfuZIaRo+NfqZRAGricFxwNy5XDnZXUKNwWVJ5JTvYuTU3/wPrSrP4+bznrdzQDpo4ssPHnSh3to3lUdcuTCNMmR4jlGCjmBx+rqy8Hnf1n73pXunRl1tumS05yZ85uEQ2JahcBWXZ2x+WlGR1OIT1dvcHLEM4q6gh+5djnkRuoQ1UCOR4o+Mr8jke2sw2gApcas5egVffbqzMAPbRKJQZCXXHI0aQo5gCc/XznAyGn+55dlbmSagyGMDRgYU18tX+kcYGr671dTFrlr1MUiiuHpnkVD0aHFLLhJVyrLM8coySxPDpJT7HHCl/eHHFD1sgKJcX4Os40Cp5fl2miyde44IkM7+gS/sDRtZJJXnaVZY/pTI9ylQrYpITlwuy7w5zUjesmm6/UYoVQqSwDxzXDMJRSaL1MW6f4CHXKcL6z4MOUds8FumlbRXyvhLlt+fhXfvvesXPLAayqIoPEYFR3LCwngDxhBtiXAja4cuzyQBpOMjmcVPclBD+rrmZCTqlX0Y4QcwEuIFUaSS4JEkJBActQWX4YclV2qytqb6AX5SBoCXytruulyMq5xQy3d7ATVW/jAQEGZYWWSj3dSXRX9KUJOQZIFXuHsEgCS4EpIVI2iNicqOJVPkfiSPq/i8iaVbHcRVzX4HaemrdGPiIv0btElh2az4IYyi6QKIILRiG4E8KqmlJUR4+2+oLjCIbSQGjFpBhnzVr1+XBm792gNa8uuRKVJQyc0iyzt+PFsYhzqEKZQBrFCetvAd4L+Y/i4hKia4ChRir1uHIQmzasOhWDK1CVcwtV44JBTu0xbZDOooUA/Bf9ZR2Imrdi9OnSLJH5Q+TgBkst2OCJnD7gvT5CjmyMkLArnpbeDlDUehpdgaeMIrdbKghvq0KnkOPzEFMyLADGoApkEhRwgx8h5/BN7NyNfCWgJus9VikM//BheAy6ziZZpnXUy6Hl65Vi3RMFG+DFIgpMSCKfFgJCcb1HCDyT8ojpSpK5HDjemXLJCdNYfLh6saCDGemu16j3q5UWzKcDyKpo+cgQIlbziJmciCd9LTtN4i13VsTID379TX4aRbBTiqC5CYMqOKnAse2T0iuyrz1hBi4PZGdZRMNai6ea37zQ5U8iJ5Q/Fpyg7jiI5fhyCu5IZRsbISQbvhluhhIYHys0rkxP7dDcEpdESfik3Kgmj81LJQRf/LXJVHaXlyx45hRoME4Zm2vK867BI8UXjzHx9kxMjx/AzIbgC483Bdb9RXYpu+7nkBJ4YtWmuQ3Z0REV3GHl9LRomnwXlUNp6vLP8X59YZzNx5HjWSWNDFnBJxpubJ63BBLmC1iJTMIGcg6KF4NTsHx8f39zePgXkANf+jiNJhR4hZ72OzB8i5vMnrdGQLSftFK2zV1coF3v1dHL83xlrl3gnnUp1VqhjHEH0J+pIU1p9iErDhxzUXIHiLOJYD17O2GFR8LCOeLn9huS3Ai9aPXiEy2EN6MMzqY9SJp5ZERrCyKczBQ3lCgqXJiCMzXuJJg+TLsmJC70sXuZidIFI/9SLbEJyaqG3Gvzj9uBJaUDL5799eAd96ZG5blxkQU28tE7kxolrHYlQSmldc1VgQqlpCQ5TdkuVJCbZ1AGC0+8BYGmpMnSVKFArhvcX1rX1SrWCGzzFoJvs4cfdrCa6cCOT0Crn2ZvAp6ell7EA2aWJ4WEeL8tK4i2MLDSqfY2/fnr7X/+NFmEGksONvHWNhsl8ZEm2iuL+WXbDbt9DznlgQNOSB6CRmumIIU4eJYWNKx+hugM0IG4P65LzCdU9W9LiQLJTtnQNyclyNhqrdBkWiZxiUCAFQkr7KtVQIyIImlj5ZxAyoL0yDGg5NaKSfHlsUuZViSP6v8q5EbYEM0A0eyALTpENQlpQZhIlQPcHqZ4c8kZKSRt+mUeEtvVSKJc0lZHRxTlGtmsoGCROTDVGtLieHTlR0UnRqtuwfNcqO9UtrlqpfFdsiMCQZhDCLvHjWKk5hPvXYDxJI4RUlT5bzJSci9BdWQaBG7ys41a3vt7dvH0q9xsNn6RJ5IDk5FOlcR6qcgMQCQZCzCID+K7fmkUxyxNP6/WwUtcjSs51PMOq3jjjWhb75vPBp2uhX200BOh1l4htCbjLuBWvfIqIqKWkkRPRq6VKtSp8+vt/RDqzGUkHHSM8CmKQRMdqxfdcvQ1KQDB5h+96vL07eHt+TbQuyHMnyIn+EnwBATxu7VtuTLVUqVT619/u2KJxsXsmZtSRCdjZDRSLJogO/Zgo6zQe469xUSy+JVQ5CgmnDJRoRyIQTHzcGfCo2cP15W9/fN0VmzDb3GONB2o922Ng+4eRIDlpkunPsXZKodAn2ib02idCYTXaDPX6fJGae6T/gw+xABn6MP6rZX190v48smjxwTRYMesTcru7ke0lFQtvXrmbTeGGYJ6c19teK9Rr9Mlfo6NSdFBTw40OB7UKcGWj3OCtm8cj1qKpnmHVMz6AymIFpYRi0Ykwfuk8tUVaiieZnhBwmOD8jUXlN0RypLLjySW5UjmHCksbRyLMA3tZpZw+9vCtxhWLTZic2FRJdKM2z8da5U6SVcbyK3wSjr7z1RYjx/aGEZeW3EkEwxD39puWmMEIIAasH0yzeApBKLMnJ9n811p9oKotvoSrEXw0kiL7rtw0iR8QIYeRVe8xJ/3SdJZ1drRLdXqZRjkID3gxEFesSEpO/s1H4TZz4oKDZGcUSUyBFk3oQm8ISqrHIeBHnluXrq99JvdhyrnXy/gg095HfIcWnqgnHVAlzVkRVNDfN1YH4vhozhJIDiPzsgQdm9Riyl6BBwhhUbvXsygqmw55BLERFKhYUaoS5RigpczlwjwplRweu8xSPxzaof/yRBMU7BZXluVyWdb8dKwScfpN9oI6XM+anPicLaZYyf0uXacOO8Vb4SEYGYvwqndGyDDvDcmXoJ1xlJALUtWoBtNHbOcw8zsBxAd06EgCGvqSAHjwj72R1CP1gUd4fOMP/yqGm56EjITViqWnyEc1Hy7mcZeNXvy0dFhKpt9W4mpVuUklJ8lkCjkF0PBdXvMGvQlwpUhixtic+6Kv0ZWJD4fr2R8s3WvGthsqFv3ECype4ArSziQ5yUwjlRze8j+qD21wbWBjhY2WjTJO6S02T1gUxY8ZlgF9JDKqwEcYfUZFcYs7BugsPJF2huQk3X6IWEGi9ehaOvq2bwvySMAD60rp7z/l678ivzS35/mPq+xFJ3H0wRcdJwhxClwwCyzBiB4+rKZ6cpo0ekAmpwAqf7hT6H+XlZbG4T/krtnmYzBNRXudV6UvDQfZH/tPHihy2LEMMVAUx41oKNq1DcutTyTJSeSo6eRA9RQQO+K3aiF+rmJJ8KILp6RmvPn8Sa6g1h4Yr5nmatbkEGrHULHo2z9/iw13ofHQc8s9qWY4FNHhkEBKxSKNnELjhqabB8nZ76X+G9GrNN4dPAmVRtWb9uAux61R5qKzW0/ciQCKDnQ+1eRuUVzm0GKxLmDEQrv9/qbMJVPydHIqB8Ub9jxWoIZRzj//Mh7vDq5HTo06WscHtRqwszc65r6V0KxekzQwGaadDh/wqydIf92+YW1BUBI5uQfC4eHW/1YqrTAVU70u8pMGhaUhaPG6PNBG96PvPns0U+zG2TEMIjn4uL5DEuKp+Rb+nguqpPB+Ko7S8uABfDYpVEyBZxhQ5r15d96dPwBQWJiCzCd7gaC0PH0frwKzHs8ifiGakJS0s/lVcmSGQSDl5XzyWWGMZEUIZCdkzR6RFFQZz+02R52HWEKZbDsUiCdaXSp5RfCGUEqk86DA1gTBLfCUeecQicyNFYfQxGs5WSOe1OYgO3MiB3p0PMkiemYs3YkqYT8UElKHD8iqpEZLPYzMjYgUMNIIVbqc12AXkoT5GBwXHZwd+oaQDSTmHz1ESjnE9mf8ScbmZeKwDyMLDkM8CqncwSfvnc88LzszYFaZNggDJ9FbDETx+IPkFBjOJo1sAL7EAUayeedIlmI7euqQWLufLzcUhe2X1GhJqZFGSzmEyRoSY1xccDxta/GlEe8rlPOcJEtQfJh5cxPNsuhroicnTsZhoxjEMyKJe4VwAynYPdIdVfHq8a3knTMYntf1tEMj2SEsfNFs7GyUu0eFPN8UrVaQRy7iJ0dACXoqVRFc11XiBYXxp38AH5+VA8yUs8OZIJy8NQRSlJNWI41WK8jkxM+dc2MU4ygSkL0ACL4vuEJ8ylKfu71BMOt1UXTKKOROQuIkg0/O26nk4LNI3IDzxCR8dWTikLGjbpwRpq88C5h7h/u7bBFy9Acxs0pxVpGhShjvcUwykYqNVAayESEHs+RyJLfS5xngENAh1BIgGik1UnyEwB4JTPz0MG6QuaDLh5ET8V8MHxROQW3OEU4C9pBITlqNFAuJGE6WZU2L8oOTA+yAh6gSYnaJEfzcU1+EW1riWFNrhQTSRnOs+LFfIAmyJjMMui8DVCmNw8jx2gtxcvAIiRHcSGi4OHdEjeBSj8f3S+UUwSEceQSc3bIH9liQZeiobV6NXEwJJ7fTySmAFhp7WgxPlUSX1wsY0hp6hNk4tLkCozKc5rpq2Q7dM+BtMjmxsUBGVjR18XTKxxWHBatpozkTGsF+2ggiJ24ANyaqFfRRsfRUri2kTvkYDCPqkDaaM7HXGbDgipAqKYIQkZyoKgEZFx2glea9/8noynqw/ESN1CdnUq8z2LhTDeVhoiCpZJuTHMtdVIMT4l6teVVLVCNFETTt9pRCcia182KSgxw8N04jJ5aqg8W1OAGW7Zau1zhOs4ri2dmuIdb/7x+fbx9ZyxtBbk5q5xFYAHKQuePkSHgJCT9IvcDo3l/a5/X6R2dExty7HFYbjX7p+tO3m7tbYuknTk7EuDC2TQoCE/d3qi1Y3jAFneDMsuScIFuqVKqQpencYAdEuFH4NK5WWKSzeHnD9+IdP/VmrjF2QmmRI24dIwf/TuN+LsmJwFRxzzIN4cErJtJ3cOkIup6OG/O+4Wxtfq2Yl6JLzE3Tofp+WrU9QtBXdDRS9XpeJUGSC5LitUptnpPmvcfnY00lNVcmiI4nLLzEgIKkCY71hUkpZ6vohIzj6hUYBwX3dMJv3vCTwZR+RHaAprkPJBkVjVuuJAFhIGiCUtPLvJOrQJZqYRSkzHuLL8DgR4xy6MzdLgxnM0ytprfuB8NRd61rro3HqEpSG1/xQbVk0YqAP4IvOpkHMjlYbgA0QW3ZV91j03znJwnmss4Nx/DBsn9d0Jrn9l4G7O4uP0YOB/OSpEUZj93Q5sq/cPod4BYfimseQA3otQlzXQ78rNItvzOj8fj499Tc6Vj3NPanDQShw3IYAa0183h5kLxtRYAaKHAtSa/BLTOya8bRH9CYZFGuXNXi7Mw2M3N0a7XAbL7T09iRrkbDEvrjT2s2Bx3QQEfHHCR1NPHSXoG99hNk5qm4ZGq+w+2maVbNxP+ekanUWmqJGtiTCn1eHJ16a8WfAt1QALqEjgVSOyluOLqjY3S78e4kc+vnYvpCl0p/ADYp8GF+f/ecaxU8pkHq3W5/MqzFfXutVuOE5zmcy3uPaW4841XOC7HbeuhXx5fPncg/XvOVdN4Tb7PCfVR0gD6YePfwKQh0lNFmt0APh+susj3gNghtMtAuX2RLu34gWNBnXthhndueilneyAlBCRSLmRzHTMdg7PWxZl9p9w5NZfc3C10c+01O7iUq5cL0rgVmPr4UkrO1En3+WX71B+Df3xgMX36te/WVvHlIzkZ7a3Nr83Rjq72yc/Lh9JXjcdO1OtzyLGoxXsWIm8GlMITkbLbb2xsQW+2TjfZm+7WTFS+JmEmNs6vDnBXdyX7GmJPNgbrg6pU+m6t9ASB6y9IZoSe6fyYy+/PGBWZmkkOhdJYbzpyc3V9crM/6wlNxr6ChMG5WO7oazb4JYfcdVObRGVuzh3qtMIcP/l54Rwhmr6/fhbXj5UWervFywAg5Zja35/4ZEJKz0155115dXd08aa9sr26stue9tPkjJOfX7c3tjfZGu93e2Npe3dlayfxc/8IhJGf1ZHv1w+rGycbJ6urGSvvkXa5duM3J+cBQ0msIw5+4Z/h6OF5z8S9SY8yRI0eOHDly5MiRI0eOHDly5MiRIweO/wdhhwENMbOQRgAAAABJRU5ErkJggg==");
-  background-repeat:no-repeat;
-}
+body {font-family:system-ui;
+  color:white;
+  text-align:center;
+  font-size:25px;
+  background-image: url("https://marlerblog.com/files/2016/09/MultiColored-United-States-Map.png");
+  background-repeat:no-repeat; 
+  background-size: cover;
+  background-color: black;
+  position: relative;
+  height: 100vh;}
 
-#q1{
-position:absolute;
-left:25%;
-top:30%;
-width: 100px
+.correct {background: #7AFC7F;}
+.incorrect {background: #FF7C7C;}
+
+#Correct_snd{position:absolute;
+left:1300px;
+top:70px;}
+#Correct{position:absolute;
+left:1400px;
+top:140px;}
+
+#WA{position:absolute;
+left:150px;
+top:60px;
+width:100px}
+#OR{position:absolute;
+left:120px;
+top:200px;
+width:100px}
+#CA{position:absolute;
+left:110px;
+top:600px;
+width:100px}
+#NV{position:absolute;
+left:180px;
+top:410px;
+width:100px}
+
+#ID{position:absolute;
+left:300px;
+top:270px;
+width:100px}
+#UT{position:absolute;
+left:360px;
+top:460px;
+width:100px}
+#AZ{position:absolute;
+left:320px;
+top:700px;
+width:100px}
+
+#MT{position:absolute;
+left:500px;
+top:140px;
+width:100px}
+#WY{position:absolute;
+left:520px;
+top:320px;
+width:100px}
+#CO{position:absolute;
+left:570px;
+top:510px;
+width:100px}
+#NM{position:absolute;
+left:530px;
+top:710px;
+width:100px}
+
+#ND{position:absolute;
+left:770px;
+top:140px;
+width:100px}
+#SD{position:absolute;
+left:770px;
+top:270px;
+width:100px}
+#NE{position:absolute;
+left:780px;
+top:410px;
+width:100px}
+#KS{position:absolute;
+left:820px;
+top:550px;
+width:100px}
+#OK{position:absolute;
+left:860px;
+top:680px;
+width:100px}
+#TX{position:absolute;
+left:780px;
+top:880px;
+width:100px}
+
+#MN{position:absolute;
+left:960px;
+top:190px;
+width:100px}
+#IA{position:absolute;
+left:990px;
+top:380px;
+width:100px}
+#MO{position:absolute;
+left:1030px;
+top:550px;
+width:100px}
+#AR{position:absolute;
+left:1040px;
+top:720px;
+width:100px}
+#LA{position:absolute;
+left:1065px;
+top:920px;
+width:100px}
+
+#WI{position:absolute;
+left:1100px;
+top:250px;
+width:100px}
+#IL{position:absolute;
+left:1140px;
+top:470px;
+width:100px}
+#MS{position:absolute;
+left:1155px;
+top:780px;
+width:90px}
+
+#MI{position:absolute;
+left:1295px;
+top:330px;
+width:90px}
+#IN{position:absolute;
+left:1258px;
+top:445px;
+width:80px}
+#KY{position:absolute;
+left:1285px;
+top:580px;
+width:100px}
+#TN{position:absolute;
+left:1260px;
+top:655px;
+width:100px}
+#AL{position:absolute;
+left:1270px;
+top:820px;
+width:100px}
+
+#OH{position:absolute;
+left:1360px;
+top:440px;
+width:100px}
+#WV{position:absolute;
+left:1450px;
+top:520px;
+width:70px}
+#GA{position:absolute;
+left:1400px;
+top:780px;
+width:100px}
+#FL{position:absolute;
+left:1520px;
+top:1020px;
+width:80px}
+
+#NY{position:absolute;
+left:1600px;
+top:280px;
+width:90px}
+#PA{position:absolute;
+left:1540px;
+top:380px;
+width:90px}
+#VA{position:absolute;
+left:1550px;
+top:530px;
+width:90px}
+#NC{position:absolute;
+left:1520px;
+top:630px;
+width:90px}
+#SC{position:absolute;
+left:1490px;
+top:710px;
+width:90px}
+
+#ME{position:absolute;
+left:1780px;
+top:120px;
+width:90px}
+#NH{position:absolute;
+left:1740px;
+top:220px;
+width:50px}
+#VT{position:absolute;
+left:1690px;
+top:180px;
+width:50px}
+#MA{position:absolute;
+left:1740px;
+top:270px;
+width:50px}
+#RI{position:absolute;
+left:1790px;
+top:315px;
+width:50px}
+#CT{position:absolute;
+left:1720px;
+top:305px;
+width:50px}
+#NJ{position:absolute;
+left:1680px;
+top:390px;
+width:50px}
+#DE{position:absolute;
+left:1660px;
+top:445px;
+width:50px}
+#MD{position:absolute;
+left:1600px;
+top:450px;
+width:50px}
+
+#AK{position:absolute;
+left:150px;
+top:980px;
+width:100px}
+#HI{position:absolute;
+left:500px;
+top:1100px;
+width:100px}
+
+#End{position:absolute;
+top:1022px;
+color: black;
 }
 </style>
 
@@ -42,7 +267,9 @@ width: 100px
 </head>
 
 <body translate="no" >
-  <audio id="Correct_snd" controls>
+  <h1>United States Quiz</h1> 
+
+<audio id="Correct_snd" controls>
 
   <source src="https://abbeyhampstead.github.io/2052-7/Correct.m4a" type="audio/mpeg">
   Your browser does not support the audio tag.
@@ -50,7 +277,68 @@ width: 100px
 
 <button id="Correct"> Correct</button>
 
-<input id="q1" data-correct="Washington"/>
+<h1 id="End">End</h1>
+ 
+<input id="WA" data-correct="washington"/>
+<input id="OR" data-correct="oregon"/>
+<input id="CA" data-correct="california"/>
+<input id="NV" data-correct="nevada"/>
+
+<input id="ID" data-correct="idaho"/>
+<input id="UT" data-correct="utah"/>
+<input id="AZ" data-correct="arizona"/>
+
+<input id="MT" data-correct="montana"/>
+<input id="WY" data-correct="wyoming"/>
+<input id="CO" data-correct="colorado"/>
+<input id="NM" data-correct="new mexico"/>
+
+<input id="ND" data-correct="north dakota"/>
+<input id="SD" data-correct="south dakota"/>
+<input id="NE" data-correct="nebraska"/>
+<input id="KS" data-correct="kansas"/>
+<input id="OK" data-correct="oklahoma"/>
+<input id="TX" data-correct="texas"/>
+
+<input id="MN" data-correct="minnesota"/>
+<input id="IA" data-correct="iowa"/>
+<input id="MO" data-correct="missouri"/>
+<input id="AR" data-correct="arkansas"/>
+<input id="LA" data-correct="Louisiana"/>
+
+<input id="WI" data-correct="wisconsin"/>
+<input id="IL" data-correct="illinois"/>
+<input id="MS" data-correct="mississippi"/>
+
+<input id="MI" data-correct="michigan"/>
+<input id="IN" data-correct="indiana"/>
+<input id="KY" data-correct="kentucky"/>
+<input id="TN" data-correct="tennesse"/>
+<input id="AL" data-correct="alabama"/>
+
+<input id="OH" data-correct="ohio"/>
+<input id="WV" data-correct="west virginia"/>
+<input id="GA" data-correct="georgia"/>
+<input id="FL" data-correct="florida"/>
+
+<input id="NY" data-correct="new york"/>
+<input id="PA" data-correct="pennsylvania"/>
+<input id="VA" data-correct="virginia"/>
+<input id="NC" data-correct="north carolina"/>
+<input id="SC" data-correct="south carolina"/>
+
+<input id="ME" data-correct="maine"/>
+<input id="NH" data-correct="new hamsphire"/>
+<input id="VT" data-correct="vermont"/>
+<input id="MA" data-correct="massachusetts"/>
+<input id="RI" data-correct="rhode island"/>
+<input id="CT" data-correct="connecticut"/>
+<input id="NJ" data-correct="new jersey"/>
+<input id="DE" data-correct="delaware"/>
+<input id="MD" data-correct="maryland"/>
+
+<input id="AK" data-correct="alaska"/>
+<input id="HI" data-correct="hawaii"/>
   
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
   
@@ -62,6 +350,21 @@ function playCorrect() {
 }
 
 $("#Correct").click(playCorrect)
+
+$("input").change(onChange)
+
+function onChange(evt){
+  let correct = $(this).data("correct");
+  let response = $(this).val();
+  correct = correct.toUpperCase();
+  response = response.toUpperCase();
+  console.log(correct, response)
+  if(correct == response){
+    $(this).removeClass('incorrect').addClass('correct');
+  } else{
+    $(this).addClass('incorrect');
+  }
+}
     </script>
 
   
@@ -70,4 +373,3 @@ $("#Correct").click(playCorrect)
 
 </html>
  
-
